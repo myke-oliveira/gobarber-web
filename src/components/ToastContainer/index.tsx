@@ -1,21 +1,18 @@
 import React from 'react';
 
+import Toast from './Toast';
 
 import { Container } from './styles'
-
-import { ToastMessage, useToast } from '../../hooks/Toast'
-
-import Toast from './Toast';
+import { ToastMessage } from '../../hooks/Toast'
 
 interface ToastContainerProps {
   messages: ToastMessage[];
 }
 
 const ToastContainer: React.FC<ToastContainerProps> = ({ messages }) => {
-  const { removeToast } = useToast();
   return <Container>
     {messages.map(message => (
-      <Toast message={message} />
+      <Toast key={message.id} message={message} />
     ))}
   </Container>
 };
